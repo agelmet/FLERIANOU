@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Αγγελική Φλεριανού - Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια & Κλινική Υπνοθεραπεύτρια. Ενδυνάμωση από Μέσα προς τα Έξω.">
-    <title>Αγγελική Φλεριανού | Γνωσιακή Συμπεριφορική & Κλινική Υπνοθεραπεία</title>
-    <link rel="icon" type="image/jpeg" href="https://github.com/agelmet/FLERIANOU/blob/main/psychologo.jpg?raw=true">
+    <meta name="description" content="Αγγελική Φλεριανού - Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια & Κλινική Υπνοθεραπεύτρια.">
+    <title>Αγγελική Φλεριανού | Γνωσιακή Συμπεριφορική Ψυχοθεραπεία & Κλινική Υπνοθεραπεία</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/agelmet/FLERIANOU/refs/heads/main/ChatGPT%20Image%2021%20%CE%99%CE%BF%CF%85%CE%BD%202026%2C%2004_36_23%20%CE%BC%CE%BC-2.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -109,19 +109,9 @@
             to { opacity: 1; }
         }
 
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(60px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
         @keyframes gentleFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
         }
 
         @keyframes revealLine {
@@ -193,7 +183,7 @@
         }
 
         .nav-logo img {
-            height: 60px;
+            height: 85px; /* Increased size based on request */
             width: auto;
             object-fit: contain;
             transition: all 0.5s var(--ease-smooth);
@@ -201,7 +191,7 @@
         }
 
         .nav.scrolled .nav-logo img {
-            height: 48px;
+            height: 65px;
         }
 
         .nav-logo:hover img {
@@ -384,7 +374,7 @@
             font-family: var(--font-body);
             font-size: 0.78rem;
             font-weight: 600;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.25em; /* Adjusted slightly for length */
             text-transform: uppercase;
             color: var(--warm-gold);
             margin-bottom: 28px;
@@ -404,7 +394,7 @@
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
             font-weight: 400;
             line-height: 1.1;
             color: var(--deep-forest);
@@ -552,10 +542,11 @@
         .hero-badge-text strong {
             display: block;
             font-family: var(--font-display);
-            font-size: 1.6rem;
+            font-size: 1.2rem; /* Adjusted for new text length */
             font-weight: 500;
             color: var(--deep-forest);
-            line-height: 1;
+            line-height: 1.2;
+            margin-bottom: 2px;
         }
 
         .hero-badge-text span {
@@ -652,12 +643,12 @@
 
         .about-image-accent span {
             font-family: var(--font-display);
-            font-size: 0.85rem;
+            font-size: 0.95rem; /* slightly larger for readability */
             font-weight: 400;
             font-style: italic;
             line-height: 1.5;
             display: block;
-            max-width: 200px;
+            max-width: 240px;
         }
 
         .about-content .section-title {
@@ -671,17 +662,6 @@
             color: var(--light-charcoal);
             font-weight: 300;
             margin-bottom: 20px;
-        }
-
-        .about-highlight {
-            margin: 32px 0;
-            padding: 28px 0 28px 28px;
-            border-left: 2px solid var(--warm-gold);
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--deep-forest);
-            line-height: 1.6;
         }
 
         .about-credentials {
@@ -855,7 +835,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           PILLARS SECTION
+           PILLARS (APPROACH) SECTION
         ═══════════════════════════════════════════ */
         .pillars {
             padding: clamp(80px, 12vw, 160px) 0;
@@ -922,22 +902,6 @@
             color: rgba(209, 194, 155, 0.2);
             line-height: 1;
             margin-bottom: 24px;
-        }
-
-        .pillar-icon {
-            width: 44px;
-            height: 44px;
-            border: 1px solid rgba(209, 194, 155, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .pillar-icon svg {
-            width: 20px;
-            height: 20px;
-            color: var(--light-gold);
         }
 
         .pillar-item h3 {
@@ -1264,6 +1228,70 @@
         }
 
         /* ═══════════════════════════════════════════
+           BLOG / ARTICLES SECTION
+        ═══════════════════════════════════════════ */
+        .blog {
+            padding: clamp(80px, 12vw, 160px) 0;
+            background: var(--white);
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: clamp(48px, 6vw, 80px);
+        }
+
+        .blog-header .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 16px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .blog-card {
+            background: var(--cream);
+            padding: 32px 28px;
+            border: 1px solid rgba(166, 145, 118, 0.1);
+            transition: all 0.4s var(--ease-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(28, 75, 65, 0.05);
+            border-color: rgba(166, 145, 118, 0.3);
+        }
+
+        .blog-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--deep-forest);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .blog-card svg {
+            width: 24px;
+            height: 24px;
+            color: var(--warm-gold);
+            flex-shrink: 0;
+            transition: transform 0.4s var(--ease-luxe);
+        }
+
+        .blog-card:hover svg {
+            transform: translateX(6px);
+            color: var(--forest);
+        }
+
+        /* ═══════════════════════════════════════════
            CTA / CONTACT SECTION
         ═══════════════════════════════════════════ */
         .cta-section {
@@ -1438,8 +1466,8 @@
                 max-width: 500px;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .services-grid, .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .cta-grid {
@@ -1504,6 +1532,10 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
+            .services-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
             .space-gallery {
                 grid-template-columns: 1fr;
             }
@@ -1537,13 +1569,10 @@
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════════
-         NAVIGATION
-    ═══════════════════════════════════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Αρχική">
-                <img src="https://github.com/agelmet/FLERIANOU/blob/main/psychologo.jpg?raw=true" alt="Αγγελική Φλεριανού Logo">
+                <img src="https://raw.githubusercontent.com/agelmet/FLERIANOU/refs/heads/main/ChatGPT%20Image%2021%20%CE%99%CE%BF%CF%85%CE%BD%202026%2C%2004_36_23%20%CE%BC%CE%BC-2.png" alt="Αγγελική Φλεριανού Logo">
             </a>
 
             <div class="nav-links">
@@ -1552,6 +1581,7 @@
                 <a href="#pillars">Προσέγγιση</a>
                 <a href="#space">Ο Χώρος</a>
                 <a href="#reviews">Εμπειρίες</a>
+                <a href="#blog">Άρθρα</a>
                 <a href="#contact" class="nav-cta">Κλείστε Ραντεβού</a>
             </div>
 
@@ -1563,19 +1593,16 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" onclick="closeMobile()">Σχετικά</a>
         <a href="#services" onclick="closeMobile()">Υπηρεσίες</a>
         <a href="#pillars" onclick="closeMobile()">Προσέγγιση</a>
         <a href="#space" onclick="closeMobile()">Ο Χώρος</a>
         <a href="#reviews" onclick="closeMobile()">Εμπειρίες</a>
+        <a href="#blog" onclick="closeMobile()">Άρθρα</a>
         <a href="#contact" onclick="closeMobile()">Κλείστε Ραντεβού</a>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         HERO
-    ═══════════════════════════════════════════ -->
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0652%20.JPG?raw=true" alt="Ψυχοθεραπεία - Χώρος" loading="eager">
@@ -1583,14 +1610,13 @@
 
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-subtitle">Γνωσιακή Συμπεριφορική & Κλινική Υπνοθεραπεία</div>
+                <div class="hero-subtitle">Γνωσιακή Συμπεριφορική Ψυχοθεραπεία & Κλινική Υπνοθεραπεία</div>
                 <h1 class="hero-title">
-                    Ενδυνάμωση<br>
-                    <em>από Μέσα</em><br>
-                    προς τα Έξω
+                    Από την αυτόματη αντίδραση<br>
+                    <em>στη συνειδητή αλλαγή</em>
                 </h1>
                 <p class="hero-desc">
-                    Ένας ασφαλής, εμπιστευτικός χώρος στη Σαλαμίνα, όπου η επιστημονική γνώση συναντά την ανθρώπινη κατανόηση. Αναπτύξτε δεξιότητες αυτορρύθμισης και βελτιώστε ουσιαστικά την ποιότητα της ζωής σας.
+                    Ένας ασφαλής και εμπιστευτικός θεραπευτικός χώρος στη Σαλαμίνα και διαδικτυακά, όπου μπορείς να κατανοήσεις βαθύτερα όσα σε δυσκολεύουν, να αναπτύξεις δεξιότητες συναισθηματικής ρύθμισης και να δημιουργήσεις έναν πιο λειτουργικό τρόπο σχέσης με τον εαυτό σου και τους άλλους.
                 </p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn-primary">
@@ -1608,16 +1634,13 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                 </div>
                 <div class="hero-badge-text">
-                    <strong>Oxford Brookes</strong>
-                    <span>University, UK</span>
+                    <strong>BSc (Hons) Psychology</strong>
+                    <span>Oxford Brookes University, σε εξέλιξη</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         ABOUT
-    ═══════════════════════════════════════════ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -1627,25 +1650,27 @@
                         <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0643%20.JPG?raw=true" alt="Αγγελική Φλεριανού - Ψυχοθεραπεύτρια" loading="lazy">
                     </div>
                     <div class="about-image-accent">
-                        <span>CBT & Κλινική Υπνοθεραπεία: δύο δρόμοι, μία κατεύθυνση.</span>
+                        <span>Σκέψη, συναίσθημα και σώμα σε μια ενιαία θεραπευτική προσέγγιση.</span>
                     </div>
                 </div>
 
                 <div class="about-content">
                     <div class="section-label reveal">Σχετικά</div>
                     <h2 class="section-title reveal reveal-delay-1">Αγγελική Φλεριανού</h2>
+                    
                     <p class="about-text reveal reveal-delay-2">
-                        Η Αγγελική Φλεριανού είναι Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια και Κλινική Υπνοθεραπεύτρια. Επενδύοντας διαρκώς στη διεθνή και σύγχρονη επιστημονική γνώση, σπουδάζει Ψυχολογία στο καταξιωμένο Oxford Brookes University του Ηνωμένου Βασιλείου, ενώ ταυτόχρονα μεριμνά για την επαγγελματική της αρτιότητα εργαζόμενη υπό τακτική εποπτεία.
+                        Είμαι Σύμβουλος Ψυχικής Υγείας, Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια και Κλινική Υπνοθεραπεύτρια. Παράλληλα, σπουδάζω Ψυχολογία στο Oxford Brookes University του Ηνωμένου Βασιλείου και εργάζομαι υπό τακτική κλινική εποπτεία.
                     </p>
                     <p class="about-text reveal reveal-delay-3">
-                        Διαθέτει ένα πολυδιάστατο θεραπευτικό προφίλ, έχοντας εκπαιδευτεί επιπλέον στην Παιδοψυχολογία, τη Συμβουλευτική Ζεύγους &amp; Οικογένειας, καθώς και στη Θετική Ψυχολογία. Στο γραφείο της συνδυάζει οργανικά τα πρακτικά, συνειδητά εργαλεία της CBT με τη βαθιά, αναδομητική δύναμη της Κλινικής Υπνοθεραπείας.
+                        Η εκπαίδευση και η συνεχιζόμενη επαγγελματική μου ανάπτυ περιλαμβάνουν τη Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία, τη Συμβουλευτική Ζεύγους και Οικογένειας και τη Θετική Ψυχολογία. Παράλληλα, εκπαιδεύομαι στη Γνωσιακή Συμπεριφορική Θεραπεία Τρίτου Κύματος, με έμφαση στην ενσυνειδητότητα, την αποδοχή, τη συναισθηματική ρύθμιση και την ενίσχυση της ψυχολογικής ευελιξίας, καθώς και στη Διαλεκτική Συμπεριφορική Θεραπεία για Παιδιά (DBT-C) και στον Επαγγελματικό Προσανατολισμό.
                     </p>
-                    <div class="about-highlight reveal reveal-delay-4">
-                        Η φιλοσοφία της δεν εστιάζει απλώς στην εξάλειψη του προβλήματος, αλλά στη συνολική ενδυνάμωση του ανθρώπου.
-                    </div>
+                    <p class="about-text reveal reveal-delay-4">
+                        Μέσα από τη συνεχή επιμόρφωσή μου, εμπλουτίζω τις γνώσεις και τις δεξιότητές μου σε ζητήματα που αφορούν τα παιδιά, τους εφήβους, τις διαπροσωπικές σχέσεις, τη συναισθηματική ρύθμιση, τη λήψη εκπαιδευτικών και επαγγελματικών αποφάσεων και τη σύγχρονη ψυχοθεραπευτική πρακτική.
+                    </p>
                     <p class="about-text reveal reveal-delay-5">
-                        Είτε αντιμετωπίζετε κρίσεις πανικού, άγχος και χαμηλή αυτοεκτίμηση, είτε δυσκολίες στις διαπροσωπικές σας σχέσεις, η Αγγελική σας παρέχει έναν απόλυτα ασφαλή, εμπιστευτικό χώρο για να αναπτύξετε δεξιότητες αυτορρύθμισης και να βελτιώσετε ουσιαστικά την ποιότητα της ζωής σας.
+                        Στη θεραπευτική διαδικασία, η προσέγγιση προσαρμόζεται στις ανάγκες, στην προσωπικότητα, στις εμπειρίες και στους στόχους κάθε ανθρώπου. Στόχος μου είναι να δημιουργώ έναν χώρο αποδοχής, ασφάλειας και ουσιαστικής συνεργασίας, μέσα στον οποίο το άτομο μπορεί να αναγνωρίσει τα μοτίβα που το δυσκολεύουν, να αποκτήσει μεγαλύτερη επίγνωση και να αναπτύξει νέους, πιο λειτουργικούς τρόπους σκέψης, συναισθηματικής διαχείρισης και δράσης.
                     </p>
+
                     <div class="about-credentials reveal reveal-delay-5">
                         <div class="about-credential">
                             <div class="about-credential-icon">
@@ -1666,76 +1691,69 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SERVICES
-    ═══════════════════════════════════════════ -->
     <section class="services" id="services">
         <div class="container">
 
             <div class="services-header">
                 <div class="section-label reveal">Υπηρεσίες</div>
-                <h2 class="section-title reveal reveal-delay-1">Πώς Μπορώ να Βοηθήσω</h2>
-                <p class="reveal reveal-delay-2">Κάθε θεραπευτική διαδρομή είναι μοναδική. Προσαρμόζω την προσέγγισή μου στις δικές σας ανάγκες, με επιστημονική ακρίβεια και ανθρώπινη ζεστασιά.</p>
+                <h2 class="section-title reveal reveal-delay-1">Πώς μπορώ να βοηθήσω</h2>
+                <p class="reveal reveal-delay-2">Κάθε θεραπευτική διαδρομή είναι διαφορετική. Οι συνεδρίες διαμορφώνονται με βάση το αίτημα, τις ανάγκες και τους προσωπικούς σου στόχους, μέσα σε ένα συνεργατικό και εμπιστευτικό πλαίσιο.</p>
             </div>
 
             <div class="services-grid">
 
-                <!-- Service 1 -->
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 2.76-2.24 5-5 5s-5-2.24-5-5a5 5 0 015-5z"/><path d="M3.41 22a8.003 8.003 0 0117.18 0"/></svg>
                     </div>
-                    <h3>CBT & Διαχείριση Άγχους</h3>
-                    <div class="service-includes">Γνωσιακή Συμπεριφορική Ψυχοθεραπεία 50' / Διαχείριση Φοβιών 50' / Αυτοεκτίμηση 50'</div>
-                    <p>Η CBT αποτελεί την πιο επιστημονικά τεκμηριωμένη προσέγγιση για τις αγχώδεις διαταραχές. Μαζί εντοπίζουμε τα δυσλειτουργικά μοτίβα σκέψης που σας εγκλωβίζουν. Μαθαίνετε πώς να διαχειρίζεστε τις κρίσεις πανικού, να ρυθμίζετε τα έντονα συναισθήματα και να χτίζετε μια σταθερή, υγιή αυτοεκτίμηση.</p>
+                    <h3>Ατομική Γνωσιακή Συμπεριφορική Ψυχοθεραπεία</h3>
+                    <div class="service-includes">Ατομική συνεδρία 50΄</div>
+                    <p>Η Γνωσιακή Συμπεριφορική Θεραπεία βοηθά το άτομο να κατανοήσει τη σύνδεση ανάμεσα στις σκέψεις, στα συναισθήματα, στις σωματικές αντιδράσεις και στη συμπεριφορά του. Μαζί αναγνωρίζουμε τα μοτίβα που συντηρούν τη δυσκολία και αναπτύσσουμε πρακτικές δεξιότητες για την αντιμετώπισή της. Η προσέγγιση μπορεί να αξιοποιηθεί για δυσκολίες που σχετίζονται με το άγχος, τον πανικό, τις φοβίες, τη χαμηλή αυτοεκτίμηση, την υπερανάλυση, τη συναισθηματική ένταση και τις διαπροσωπικές σχέσεις.</p>
                     <div class="service-tags">
-                        <span class="service-tag">Κρίσεις Πανικού</span>
-                        <span class="service-tag">Φοβίες</span>
+                        <span class="service-tag">Άγχος</span>
+                        <span class="service-tag">Πανικός</span>
                         <span class="service-tag">Αυτοεκτίμηση</span>
                     </div>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="service-card reveal reveal-delay-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h3>Κλινική Υπνοθεραπεία</h3>
-                    <div class="service-includes">Κλινική Υπνοθεραπεία 50'</div>
-                    <p>Ένα πανίσχυρο, απόλυτα ασφαλές και επιστημονικό εργαλείο. Βοηθά στην παράκαμψη των συνειδητών αντιστάσεων, επιτρέποντάς σας να προσεγγίσετε το υποσυνείδητο. Εξαιρετικά αποτελεσματική για βαθιά ριζωμένες φοβίες, περιοριστικές πεποιθήσεις και βαθιά χαλάρωση του νευρικού συστήματος.</p>
+                    <h3>Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία</h3>
+                    <div class="service-includes">Ατομική συνεδρία 50΄</div>
+                    <p>Η Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία συνδυάζει τις αρχές της CBT με τεχνικές εστιασμένης προσοχής, χαλάρωσης και καθοδηγούμενης φαντασίας. Κατά τη διάρκεια της διαδικασίας το άτομο παραμένει σε επικοινωνία με τον θεραπευτή και διατηρεί τον έλεγχο. Η υπνοθεραπεία είναι μια κατάσταση αυξημένης συγκέντρωσης και εσωτερικής προσοχής. Ανάλογα με το θεραπευτικό αίτημα, μπορεί να χρησιμοποιηθούν διαφραγματική αναπνοή, προοδευτική μυϊκή χαλάρωση, τεχνικές ενδυνάμωσης, γνωσιακής αναδόμησης και συναισθηματικής ρύθμισης.</p>
                     <div class="service-tags">
-                        <span class="service-tag">Υποσυνείδητο</span>
+                        <span class="service-tag">Εστιασμένη προσοχή</span>
                         <span class="service-tag">Χαλάρωση</span>
-                        <span class="service-tag">Αλλαγή Πεποιθήσεων</span>
+                        <span class="service-tag">Ενδυνάμωση</span>
                     </div>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="service-card reveal reveal-delay-2">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                     </div>
-                    <h3>Θεραπεία Ζεύγους & Οικογένειας</h3>
-                    <div class="service-includes">Θεραπεία Ζεύγους 60' / Συμβουλευτική Οικογένειας 60'</div>
-                    <p>Αξιοποιώντας την εξειδίκευσή της στη Συμβουλευτική Ζεύγους και Οικογένειας, η θεραπεύτρια υποστηρίζει ζευγάρια που βιώνουν κρίση. Δουλεύουμε πάνω στα προβλήματα επικοινωνίας, την αποκατάσταση εμπιστοσύνης και τη διαχείριση συγκρούσεων.</p>
+                    <h3>Συμβουλευτική Ζεύγους και Οικογένειας</h3>
+                    <div class="service-includes">Συνεδρία ζεύγους ή οικογένειας 60΄</div>
+                    <p>Η συμβουλευτική ζεύγους και οικογένειας προσφέρει έναν ασφαλή χώρο, μέσα στον οποίο τα μέλη μπορούν να εκφράσουν τις ανάγκες και τις δυσκολίες τους χωρίς επίκριση. Η θεραπευτική εργασία επικεντρώνεται στην επικοινωνία, στη διαχείριση των συγκρούσεων, στην κατανόηση των επαναλαμβανόμενων μοτίβων της σχέσης και στη δημιουργία πιο σαφών και λειτουργικών ορίων.</p>
                     <div class="service-tags">
                         <span class="service-tag">Επικοινωνία</span>
-                        <span class="service-tag">Εμπιστοσύνη</span>
-                        <span class="service-tag">Συμβίωση</span>
+                        <span class="service-tag">Όρια</span>
+                        <span class="service-tag">Σύνδεση</span>
                     </div>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="service-card reveal reveal-delay-3">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     </div>
-                    <h3>Διαδικτυακή Θεραπεία & Θετική Ψυχολογία</h3>
-                    <div class="service-includes">Βιντεοκλήση 50' / Γενική Συνεδρία 50'</div>
-                    <p>Ενσωματώνοντας αρχές της Θετικής Ψυχολογίας, η εστίαση δεν είναι μόνο στο πρόβλημα, αλλά στην ανάδειξη των δυνατών σας σημείων. Όλες οι υπηρεσίες παρέχονται και διαδικτυακά, εξασφαλίζοντας ευελιξία και συνεχή υποστήριξη, ανεξάρτητα από τον τόπο διαμονής σας.</p>
+                    <h3>Διαδικτυακές Συνεδρίες</h3>
+                    <div class="service-includes">Online ατομική συνεδρία 50΄</div>
+                    <p>Οι συνεδρίες μπορούν να πραγματοποιηθούν και διαδικτυακά, προσφέροντας πρόσβαση στη θεραπευτική υποστήριξη ανεξάρτητα από τον τόπο διαμονής. Η διαδικτυακή θεραπεία διατηρεί το ίδιο συνεργατικό και εμπιστευτικό πλαίσιο, ενώ προσφέρει μεγαλύτερη ευελιξία σε ανθρώπους με απαιτητικό πρόγραμμα, δυσκολία μετακίνησης ή διαμονή εκτός Σαλαμίνας.</p>
                     <div class="service-tags">
                         <span class="service-tag">Online</span>
-                        <span class="service-tag">Θετική Ψυχολογία</span>
+                        <span class="service-tag">Εμπιστευτικότητα</span>
                         <span class="service-tag">Ευελιξία</span>
                     </div>
                 </div>
@@ -1745,15 +1763,12 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         PILLARS
-    ═══════════════════════════════════════════ -->
     <section class="pillars" id="pillars">
         <div class="container">
 
             <div class="pillars-header">
-                <div class="section-label reveal">Τι με Διαφοροποιεί</div>
-                <h2 class="section-title reveal reveal-delay-1">Η Επιστήμη Πίσω από τη Θεραπεία</h2>
+                <div class="section-label reveal">Η θεραπευτική μου προσέγγιση</div>
+                <h2 class="section-title reveal reveal-delay-1">Πώς δουλεύουμε μαζί</h2>
             </div>
 
             <div class="pillars-grid">
@@ -1763,8 +1778,8 @@
                     <div class="pillar-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                     </div>
-                    <h3>Διεθνές Ακαδημαϊκό Προφίλ</h3>
-                    <p>Οι σπουδές μου στο καταξιωμένο Oxford Brookes University διασφαλίζουν ότι η θεωρητική και κλινική μου γνώση ακολουθεί τα πιο σύγχρονα, αυστηρά επιστημονικά πρότυπα.</p>
+                    <h3>Εξατομικευμένη θεραπευτική διαδικασία</h3>
+                    <p>Κάθε άνθρωπος έχει διαφορετικές εμπειρίες, ανάγκες και ρυθμό. Η θεραπευτική προσέγγιση προσαρμόζεται στο προσωπικό σου αίτημα και δεν βασίζεται σε ένα ίδιο πρωτόκολλο για όλους.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-1">
@@ -1772,8 +1787,8 @@
                     <div class="pillar-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <h3>Ο Συνδυασμός CBT & Ύπνωσης</h3>
-                    <p>Η CBT αλλάζει τον τρόπο που σκέφτεστε συνειδητά, ενώ η Κλινική Υπνοθεραπεία διευκολύνει την υποσυνείδητη αλλαγή. Αυτός ο συνδυασμός προσφέρει γρηγορότερα και πιο ριζωμένα αποτελέσματα.</p>
+                    <h3>Σύνδεση σκέψης, συναισθήματος και σώματος</h3>
+                    <p>Η θεραπευτική εργασία δεν περιορίζεται μόνο σε όσα σκέφτεσαι. Διερευνούμε τη σύνδεση ανάμεσα στις σκέψεις, στα συναισθήματα, στις σωματικές αντιδράσεις και στις συμπεριφορές σου.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-2">
@@ -1781,8 +1796,8 @@
                     <div class="pillar-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     </div>
-                    <h3>Θετική Οπτική</h3>
-                    <p>Μέσα από τη Θετική Ψυχολογία, δεν επικεντρώνομαι μόνο στο πώς θα επιβιώσετε από το άγχος, αλλά στο πώς θα ανθίσετε και θα βελτιώσετε συνολικά την καθημερινότητά σας.</p>
+                    <h3>Από την αντίδραση στην επίγνωση</h3>
+                    <p>Μαθαίνεις να αναγνωρίζεις τα εσωτερικά ερεθίσματα και τα αυτόματα μοτίβα που ενεργοποιούνται, ώστε να δημιουργείται χώρος ανάμεσα σε αυτό που συμβαίνει και στον τρόπο με τον οποίο επιλέγεις να ανταποκριθείς.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-3">
@@ -1790,8 +1805,8 @@
                     <div class="pillar-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
-                    <h3>Εποπτεία & Συνεχής Εξέλιξη</h3>
-                    <p>Η ψυχοθεραπεία είναι λειτούργημα και ευθύνη. Εργάζομαι υπό τακτική κλινική εποπτεία, προστατεύοντας την ασφάλεια της θεραπευτικής διαδικασίας.</p>
+                    <h3>Εποπτεία και συνεχής εκπαίδευση</h3>
+                    <p>Η θεραπευτική μου εργασία υποστηρίζεται από τακτική κλινική εποπτεία και συνεχή επιμόρφωση, με σεβασμό στα όρια, στις ανάγκες και στην ασφάλεια κάθε θεραπευόμενου.</p>
                 </div>
 
             </div>
@@ -1799,16 +1814,13 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SPACE / GALLERY
-    ═══════════════════════════════════════════ -->
     <section class="space" id="space">
         <div class="container">
 
             <div class="space-header">
                 <div class="section-label reveal">Ο Χώρος</div>
-                <h2 class="section-title reveal reveal-delay-1">Ένα Περιβάλλον Ηρεμίας</h2>
-                <p class="reveal reveal-delay-2">Σχεδιασμένος για να αποπνέει ζεστασιά, ιδιωτικότητα και αίσθημα ασφάλειας από την πρώτη στιγμή.</p>
+                <h2 class="section-title reveal reveal-delay-1">Ένα περιβάλλον ηρεμίας</h2>
+                <p class="reveal reveal-delay-2">Ένας ζεστός και ιδιωτικός χώρος στη Σαλαμίνα, σχεδιασμένος ώστε να υποστηρίζει την ασφάλεια, την ηρεμία και την ελεύθερη έκφραση κατά τη διάρκεια της συνεδρίας.</p>
             </div>
 
             <div class="space-gallery">
@@ -1823,21 +1835,17 @@
         </div>
     </section>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-close">&times;</div>
         <img id="lightboxImg" src="" alt="Μεγεθυμένη εικόνα">
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         REVIEWS
-    ═══════════════════════════════════════════ -->
     <section class="reviews" id="reviews">
         <div class="container">
 
             <div class="reviews-header">
                 <div class="section-label reveal">Εμπειρίες</div>
-                <h2 class="section-title reveal reveal-delay-1">Η Εμπιστοσύνη σας Μιλά</h2>
+                <h2 class="section-title reveal reveal-delay-1">Αξιολογήσεις θεραπευόμενων</h2>
                 <p class="reveal reveal-delay-2">Αληθινές εμπειρίες ανθρώπων που έκαναν το βήμα.</p>
             </div>
 
@@ -1846,7 +1854,6 @@
         <div class="reviews-track-wrapper reveal">
             <div class="reviews-track" id="reviewsTrack">
 
-                <!-- Review 1 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1871,7 +1878,6 @@
                     </div>
                 </div>
 
-                <!-- Review 2 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1896,7 +1902,6 @@
                     </div>
                 </div>
 
-                <!-- Review 3 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1921,7 +1926,6 @@
                     </div>
                 </div>
 
-                <!-- Review 4 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1946,7 +1950,6 @@
                     </div>
                 </div>
 
-                <!-- Review 5 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1971,7 +1974,6 @@
                     </div>
                 </div>
 
-                <!-- Review 6 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1996,7 +1998,6 @@
                     </div>
                 </div>
 
-                <!-- Review 7 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2021,7 +2022,6 @@
                     </div>
                 </div>
 
-                <!-- Review 8 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2046,7 +2046,6 @@
                     </div>
                 </div>
 
-                <!-- Review 9 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2071,7 +2070,6 @@
                     </div>
                 </div>
 
-                <!-- Review 10 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2096,7 +2094,6 @@
                     </div>
                 </div>
 
-                <!-- Review 11 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2121,7 +2118,6 @@
                     </div>
                 </div>
 
-                <!-- Review 12 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2157,21 +2153,66 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         CTA / CONTACT
-    ═══════════════════════════════════════════ -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="blog-header">
+                <div class="section-label reveal">Κατηγορίες Θεματολογίας</div>
+                <h2 class="section-title reveal reveal-delay-1">Άρθρα</h2>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card reveal">
+                    <h3>Άγχος και κρίσεις πανικού</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-1">
+                    <h3>Αυτοεκτίμηση και εσωτερικός διάλογος</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-2">
+                    <h3>Σχέσεις και όρια</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal">
+                    <h3>Συναισθηματική ρύθμιση και Third-Wave CBT</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-1">
+                    <h3>Κλινική υπνοθεραπεία</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-2">
+                    <h3>Παιδιά και έφηβοι</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal">
+                    <h3>Γονείς και οικογένεια</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-1">
+                    <h3>Επαγγελματικός προσανατολισμός</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="blog-card reveal reveal-delay-2">
+                    <h3>Ψυχοθεραπεία και θεραπευτική διαδικασία</h3>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-grid">
 
                 <div class="cta-content">
-                    <div class="section-label reveal">Ξεκινήστε Σήμερα</div>
-                    <h2 class="cta-title reveal reveal-delay-1">Η αλλαγή ξεκινά<br>με ένα βήμα.</h2>
+                    <div class="section-label reveal">Ξεκινήστε σήμερα</div>
+                    <h2 class="cta-title reveal reveal-delay-1">Η αλλαγή μπορεί να ξεκινήσει<br>με μια πρώτη συζήτηση.</h2>
                     <p class="cta-desc reveal reveal-delay-2">
-                        Επικοινωνήστε μαζί μου για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης εμπιστοσύνης, αποδοχής και επιστημονικής αρτιότητας.
+                        Επικοινωνήστε μαζί μου για να προγραμματίσουμε την πρώτη συνεδρία και να συζητήσουμε όσα σας απασχολούν, τους στόχους σας και τον τρόπο με τον οποίο μπορούμε να δουλέψουμε μαζί.
                     </p>
                     <a href="tel:+306983614985" class="btn-primary reveal reveal-delay-3">
-                        <span>Κλείστε Ραντεβού</span>
+                        <span>Κλείστε την πρώτη σας συνεδρία</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -2198,7 +2239,7 @@
                         <h4>Ωράριο Λειτουργίας</h4>
                         <div class="contact-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            <span>Δευτέρα - Παρασκευή, κατόπιν ραντεβού</span>
+                            <span>Δευτέρα - Σάββατο</span>
                         </div>
                     </div>
 
@@ -2208,9 +2249,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         FOOTER
-    ═══════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
@@ -2220,9 +2258,6 @@
         </div>
     </footer>
 
-    <!-- ═══════════════════════════════════════════
-         JAVASCRIPT
-    ═══════════════════════════════════════════ -->
     <script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
