@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Contentful SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
     <style>
         /* ═══════════════════════════════════════════
            CSS VARIABLES & RESET
@@ -183,7 +186,7 @@
         }
 
         .nav-logo img {
-            height: 85px; /* Increased size based on request */
+            height: 85px; 
             width: auto;
             object-fit: contain;
             transition: all 0.5s var(--ease-smooth);
@@ -374,7 +377,7 @@
             font-family: var(--font-body);
             font-size: 0.78rem;
             font-weight: 600;
-            letter-spacing: 0.25em; /* Adjusted slightly for length */
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--warm-gold);
             margin-bottom: 28px;
@@ -542,7 +545,7 @@
         .hero-badge-text strong {
             display: block;
             font-family: var(--font-display);
-            font-size: 1.2rem; /* Adjusted for new text length */
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--deep-forest);
             line-height: 1.2;
@@ -643,7 +646,7 @@
 
         .about-image-accent span {
             font-family: var(--font-display);
-            font-size: 0.95rem; /* slightly larger for readability */
+            font-size: 0.95rem;
             font-weight: 400;
             font-style: italic;
             line-height: 1.5;
@@ -1108,6 +1111,8 @@
             flex-shrink: 0;
             border: 1px solid rgba(166, 145, 118, 0.1);
             transition: all 0.4s var(--ease-smooth);
+            display: flex;
+            flex-direction: column;
         }
 
         .review-card:hover {
@@ -1166,7 +1171,7 @@
             font-weight: 300;
             margin-bottom: 24px;
             font-style: italic;
-            min-height: 80px;
+            flex-grow: 1;
         }
 
         .review-author {
@@ -1189,12 +1194,6 @@
             color: var(--warm-gold);
             font-weight: 400;
             margin-top: 2px;
-        }
-
-        .review-date {
-            font-size: 0.72rem;
-            color: var(--taupe);
-            font-weight: 400;
         }
 
         .reviews-cta {
@@ -1228,7 +1227,7 @@
         }
 
         /* ═══════════════════════════════════════════
-           BLOG / ARTICLES SECTION
+           BLOG / ARTICLES SECTION (CONTENTFUL)
         ═══════════════════════════════════════════ */
         .blog {
             padding: clamp(80px, 12vw, 160px) 0;
@@ -1245,51 +1244,136 @@
             margin-bottom: 16px;
         }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .blog-card {
+        /* Blog List View */
+        #list-view { display: block; }
+        
+        .dynamic-article-card {
             background: var(--cream);
             padding: 32px 28px;
+            margin-bottom: 24px;
             border: 1px solid rgba(166, 145, 118, 0.1);
             transition: all 0.4s var(--ease-smooth);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
             cursor: pointer;
+            border-left: 4px solid var(--warm-gold);
         }
-
-        .blog-card:hover {
+        
+        .dynamic-article-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 16px 40px rgba(28, 75, 65, 0.05);
             border-color: rgba(166, 145, 118, 0.3);
         }
-
-        .blog-card h3 {
+        
+        .dynamic-article-card h3 {
             font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1.5rem;
             color: var(--deep-forest);
-            margin: 0;
+            margin-bottom: 8px;
             line-height: 1.3;
         }
-
-        .blog-card svg {
-            width: 24px;
-            height: 24px;
-            color: var(--warm-gold);
-            flex-shrink: 0;
-            transition: transform 0.4s var(--ease-luxe);
+        
+        .dynamic-article-card .date {
+            font-size: 0.75rem;
+            color: var(--taupe);
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
         }
-
-        .blog-card:hover svg {
-            transform: translateX(6px);
+        
+        .dynamic-article-card .read-more-btn {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: var(--forest);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-bottom: 1px solid var(--warm-gold);
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
+
+        .dynamic-article-card:hover .read-more-btn {
+            color: var(--deep-forest);
+            border-color: var(--deep-forest);
+        }
+
+        /* Article View */
+        #article-view {
+            display: none;
+            background: var(--white);
+            padding: clamp(30px, 5vw, 60px);
+            border: 1px solid rgba(166, 145, 118, 0.1);
+            box-shadow: 0 20px 60px rgba(28, 75, 65, 0.03);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-btn {
+            background: none;
+            border: none;
+            color: var(--taupe);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            margin-bottom: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            padding: 0;
+            font-family: var(--font-body);
+        }
+        
+        .back-btn:hover { color: var(--deep-forest); }
+        
+        #single-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--deep-forest);
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        
+        .article-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--light-charcoal);
+            font-weight: 300;
+        }
+        
+        .article-content p { margin-bottom: 24px; }
+        
+        .article-content h1, .article-content h2, .article-content h3 {
+            font-family: var(--font-display);
+            color: var(--deep-forest);
+            margin: 40px 0 20px;
+            line-height: 1.3;
+        }
+        
+        .article-content h2 { font-size: 2rem; }
+        
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 32px 0;
+            border: 1px solid var(--mist);
+        }
+        
+        .article-content a {
+            color: var(--warm-gold);
+            text-decoration: none;
+            border-bottom: 1px solid var(--warm-gold);
+            transition: color 0.3s ease;
+        }
+        
+        .article-content a:hover { color: var(--forest); }
 
         /* ═══════════════════════════════════════════
            CTA / CONTACT SECTION
@@ -1466,7 +1550,7 @@
                 max-width: 500px;
             }
 
-            .services-grid, .blog-grid {
+            .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
@@ -1532,7 +1616,7 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
 
-            .services-grid, .blog-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1569,6 +1653,9 @@
 </head>
 <body>
 
+    <!-- ═══════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Αρχική">
@@ -1593,6 +1680,7 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" onclick="closeMobile()">Σχετικά</a>
         <a href="#services" onclick="closeMobile()">Υπηρεσίες</a>
@@ -1603,6 +1691,9 @@
         <a href="#contact" onclick="closeMobile()">Κλείστε Ραντεβού</a>
     </div>
 
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0652%20.JPG?raw=true" alt="Ψυχοθεραπεία - Χώρος" loading="eager">
@@ -1641,6 +1732,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -1662,7 +1756,7 @@
                         Είμαι Σύμβουλος Ψυχικής Υγείας, Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια και Κλινική Υπνοθεραπεύτρια. Παράλληλα, σπουδάζω Ψυχολογία στο Oxford Brookes University του Ηνωμένου Βασιλείου και εργάζομαι υπό τακτική κλινική εποπτεία.
                     </p>
                     <p class="about-text reveal reveal-delay-3">
-                        Η εκπαίδευση και η συνεχιζόμενη επαγγελματική μου ανάπτυ περιλαμβάνουν τη Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία, τη Συμβουλευτική Ζεύγους και Οικογένειας και τη Θετική Ψυχολογία. Παράλληλα, εκπαιδεύομαι στη Γνωσιακή Συμπεριφορική Θεραπεία Τρίτου Κύματος, με έμφαση στην ενσυνειδητότητα, την αποδοχή, τη συναισθηματική ρύθμιση και την ενίσχυση της ψυχολογικής ευελιξίας, καθώς και στη Διαλεκτική Συμπεριφορική Θεραπεία για Παιδιά (DBT-C) και στον Επαγγελματικό Προσανατολισμό.
+                        Η εκπαίδευση και η συνεχιζόμενη επαγγελματική μου ανάπτυξη περιλαμβάνουν τη Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία, τη Συμβουλευτική Ζεύγους και Οικογένειας και τη Θετική Ψυχολογία. Παράλληλα, εκπαιδεύομαι στη Γνωσιακή Συμπεριφορική Θεραπεία Τρίτου Κύματος, με έμφαση στην ενσυνειδητότητα, την αποδοχή, τη συναισθηματική ρύθμιση και την ενίσχυση της ψυχολογικής ευελιξίας, καθώς και στη Διαλεκτική Συμπεριφορική Θεραπεία για Παιδιά (DBT-C) και στον Επαγγελματικό Προσανατολισμό.
                     </p>
                     <p class="about-text reveal reveal-delay-4">
                         Μέσα από τη συνεχή επιμόρφωσή μου, εμπλουτίζω τις γνώσεις και τις δεξιότητές μου σε ζητήματα που αφορούν τα παιδιά, τους εφήβους, τις διαπροσωπικές σχέσεις, τη συναισθηματική ρύθμιση, τη λήψη εκπαιδευτικών και επαγγελματικών αποφάσεων και τη σύγχρονη ψυχοθεραπευτική πρακτική.
@@ -1691,6 +1785,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         SERVICES
+    ═══════════════════════════════════════════ -->
     <section class="services" id="services">
         <div class="container">
 
@@ -1702,6 +1799,7 @@
 
             <div class="services-grid">
 
+                <!-- Service 1 -->
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 2.76-2.24 5-5 5s-5-2.24-5-5a5 5 0 015-5z"/><path d="M3.41 22a8.003 8.003 0 0117.18 0"/></svg>
@@ -1716,6 +1814,7 @@
                     </div>
                 </div>
 
+                <!-- Service 2 -->
                 <div class="service-card reveal reveal-delay-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -1730,6 +1829,7 @@
                     </div>
                 </div>
 
+                <!-- Service 3 -->
                 <div class="service-card reveal reveal-delay-2">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
@@ -1744,6 +1844,7 @@
                     </div>
                 </div>
 
+                <!-- Service 4 -->
                 <div class="service-card reveal reveal-delay-3">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -1763,6 +1864,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         PILLARS (APPROACH)
+    ═══════════════════════════════════════════ -->
     <section class="pillars" id="pillars">
         <div class="container">
 
@@ -1775,36 +1879,24 @@
 
                 <div class="pillar-item reveal">
                     <div class="pillar-number">01</div>
-                    <div class="pillar-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    </div>
                     <h3>Εξατομικευμένη θεραπευτική διαδικασία</h3>
                     <p>Κάθε άνθρωπος έχει διαφορετικές εμπειρίες, ανάγκες και ρυθμό. Η θεραπευτική προσέγγιση προσαρμόζεται στο προσωπικό σου αίτημα και δεν βασίζεται σε ένα ίδιο πρωτόκολλο για όλους.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-1">
                     <div class="pillar-number">02</div>
-                    <div class="pillar-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
                     <h3>Σύνδεση σκέψης, συναισθήματος και σώματος</h3>
                     <p>Η θεραπευτική εργασία δεν περιορίζεται μόνο σε όσα σκέφτεσαι. Διερευνούμε τη σύνδεση ανάμεσα στις σκέψεις, στα συναισθήματα, στις σωματικές αντιδράσεις και στις συμπεριφορές σου.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-2">
                     <div class="pillar-number">03</div>
-                    <div class="pillar-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    </div>
                     <h3>Από την αντίδραση στην επίγνωση</h3>
                     <p>Μαθαίνεις να αναγνωρίζεις τα εσωτερικά ερεθίσματα και τα αυτόματα μοτίβα που ενεργοποιούνται, ώστε να δημιουργείται χώρος ανάμεσα σε αυτό που συμβαίνει και στον τρόπο με τον οποίο επιλέγεις να ανταποκριθείς.</p>
                 </div>
 
                 <div class="pillar-item reveal reveal-delay-3">
                     <div class="pillar-number">04</div>
-                    <div class="pillar-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
                     <h3>Εποπτεία και συνεχής εκπαίδευση</h3>
                     <p>Η θεραπευτική μου εργασία υποστηρίζεται από τακτική κλινική εποπτεία και συνεχή επιμόρφωση, με σεβασμό στα όρια, στις ανάγκες και στην ασφάλεια κάθε θεραπευόμενου.</p>
                 </div>
@@ -1814,6 +1906,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         SPACE / GALLERY
+    ═══════════════════════════════════════════ -->
     <section class="space" id="space">
         <div class="container">
 
@@ -1835,11 +1930,15 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-close">&times;</div>
         <img id="lightboxImg" src="" alt="Μεγεθυμένη εικόνα">
     </div>
 
+    <!-- ═══════════════════════════════════════════
+         REVIEWS
+    ═══════════════════════════════════════════ -->
     <section class="reviews" id="reviews">
         <div class="container">
 
@@ -1854,6 +1953,31 @@
         <div class="reviews-track-wrapper reveal">
             <div class="reviews-track" id="reviewsTrack">
 
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-score">
+                            <span class="review-score-badge">10.0</span>
+                            <div class="review-stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                        </div>
+                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                    </div>
+                    <p class="review-text">Η Αγγελική είναι κάτι σπάνιο και δυσεύρετο στο νησί μας αλλά και γενικότερα πιστεύω. Οι γνώσεις της είναι εις βάθος και οι τεχνικές της διαφορετικές από όσα είχα δουλέψει μέχρι τωρα. Σε βοηθάει επί της ουσίας και όχι απλά με συμβουλές κ λόγια του αέρα. Την ευχαριστώ βαθιά γιατί η καθοδήγηση της με έχει βοηθήσει πολύ και σε ατομικό επίπεδο αλλά κ σε οικογενειακό πλαίσιο.</p>
+                    <div class="review-author">
+                        <div>
+                            <div class="review-author-name">Χρυσούλα</div>
+                            <div class="review-author-meta">1 αξιολόγηση</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1874,10 +1998,10 @@
                             <div class="review-author-name">Scott</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">13 Ιανουαρίου 2026</div>
                     </div>
                 </div>
 
+                <!-- Review 3 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1892,16 +2016,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η ψυχοθεραπεύτρια μου με βοήθησε ουσιαστικά να ξεπεράσω τις κρίσεις πανικού και να γίνω πιο λειτουργικός στην καθημερινότητά μου. Από την αρχή με έκανε να νιώθω άνετα και ασφαλής.</p>
+                    <p class="review-text">Η ψυχοθεραπεύτρια μου με βοηθησε ουσιαστικα να ξεπερασω τις κρισεις πανικου και να γινω πιο λειτουργικος στην καθημερινοτητα μου. Απο την αρχη με εκανε να νιωθω ανετα και ασφαλης.Την ευχαριστώ πολύ 🙏🏻</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Manos</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">13 Ιανουαρίου 2026</div>
                     </div>
                 </div>
 
+                <!-- Review 4 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1916,16 +2040,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η Αγγελική καταφέρνει να συνδυάζει τη ζεστασιά και την ενσυναίσθηση με την επιστημονικότητα. Σου δημιουργεί μια απίστευτη αίσθηση εμπιστοσύνης. Η ανακούφιση από την πρώτη συνεδρία ήταν σαν ένα τεράστιο βάρος να έφυγε.</p>
+                    <p class="review-text">Η Αγγελική καταφέρνει να συνδυάζει την ζεστασιά και την ενσυναισθηση, με την επιστημονικοτητα. Έχω μεγάλη δυσκολία να μιλήσω για τα συναισθήματα μου και τις σκέψεις μου, αλλά σου δημιουργεί μια απίστευτη αίσθηση εμπιστοσύνης και οικειότητα, και το να της ανοιχτώ το ένιωσα απόλυτα φυσικό και εύκολο. Η ανακούφιση που μου δημιούργησε από την πρώτη συνεδρία, ηταν σαν ένα τεράστιο βάρος να έφυγε από πάνω μου. Είμαι πολύ ευγνώμων που την βρήκα και που έκανα το βήμα να ξεκινήσω μαζί της θεραπεία.</p>
                     <div class="review-author">
                         <div>
-                            <div class="review-author-name">Κωσ</div>
+                            <div class="review-author-name">κωσ</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">21 Δεκεμβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 5 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1940,16 +2064,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η ψυχοθεραπεύτριά μου με βοήθησε να σταθώ ξανά στα πόδια μου μετά από έναν δύσκολο χωρισμό και να ανακαλύψω ποια είμαι πραγματικά. Ένιωσα στήριξη, κατανόηση και δύναμη να προχωρήσω.</p>
+                    <p class="review-text">Η ψυχοθεραπεύτριά μου με βοήθησε να σταθώ ξανά στα πόδια μου μετά από έναν δύσκολο χωρισμό και να ανακαλύψω ποια είμαι πραγματικά. Μέσα από τις συνεδρίες μας ένιωσα στήριξη κατανόηση και δύναμη να προχωρήσω.</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Stella</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">05 Νοεμβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 6 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1964,16 +2088,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η συνεργασία μας ήταν καθοριστική για μένα. Ξεπέρασα τις κρίσεις πανικού, ξαναβρήκα τον εαυτό μου και ένιωσα πραγματικά πιο δυνατή και σίγουρη. Μια ψυχολόγος με βαθιά κατανόηση και ανθρώπινη παρουσία.</p>
+                    <p class="review-text">Η συνεργασία μας ήταν καθοριστική για μένα. Με τη βοήθειά της ξεπέρασα τις κρίσεις πανικού, ξαναβρήκα τον εαυτό μου και ένιωσα πραγματικά πιο δυνατή και σίγουρη. Μια ψυχολόγος με βαθιά κατανόηση και ανθρώπινη παρουσία</p>
                     <div class="review-author">
                         <div>
-                            <div class="review-author-name">Χριστίνα</div>
+                            <div class="review-author-name">Χριστινα</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">31 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 7 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1988,16 +2112,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η ψυχολόγος μου με έχει βοηθήσει πολύ να πω δυνατά τις σκέψεις μου. Ο σεβασμός και η αντιμετώπισή της με μαθαίνουν να αντιμετωπίζω καλύτερα τη ζωή μου. Νιώθω ότι πραγματικά ακούγομαι.</p>
+                    <p class="review-text">Η ψυχολόγος μου με έχει βοηθήσει πολύ να πω δυνατά τις σκέψεις μου. Ο σεβασμός και η αντιμετώπιση της με μαθαίνουν να αντιμετωπίζω καλύτερα τη ζωή μου . Είναι πολύ θετικό ότι η συνεδρία γίνεται με μορφή συζητήσεις και όχι με υποδείξεις, Νιώθω ότι πραγματικά ακούγομαι και παίρνω πάρα πολύ χρήσιμες πληροφορίες. Ήταν η πρώτη φορά δεν έχω ξανά κάνει θεραπεία Και με έκανε να γίνει μέρος της ζωής μου.</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Marianna</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">31 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 8 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2012,16 +2136,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η συνεδρία μου ήταν μια εξαιρετική εμπειρία. Ένιωσα πολύ άνετα χωρίς καμία πίεση. Σαν να βρίσκομαι σε ένα περιβάλλον υποστηρικτικό και ασφαλές. Η βοήθειά της μου προσφέρει ηρεμία στις σκέψεις μου.</p>
+                    <p class="review-text">Η συνεδρία μου ήταν μια εξαιρετικη εμπειρία. Η κυρία Φλεριανου ήταν άμεση δημιουργοντας μου ένα κλίμα εμπιστοσύνης από την πρώτη στιγμή. Ένιωσα πολύ άνετα χωρίς καμία πίεση ψυχολογική ή αμηχανία. Ένιωσα αμέσως σαν να βρίσκομαι σε ένα περιβάλλον υποστηρικτικό και ασφαλές. Η βοήθεια της μου προσφέρει ηρεμία στην σκέψεις μου!</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Ευαγγελία</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">31 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 9 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2036,16 +2160,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η καλύτερη με διαφορά. Με βοήθησε πολύ, είναι πάνω από όλα άνθρωπος και ξέρει πώς να διαχειριστεί το κάθε πρόβλημα που αντιμετωπίζεις.</p>
+                    <p class="review-text">Η καλύτερη με διαφορά. Με βοήθησε πολύ είναι πάνω από όλα άνθρωπος και ξερει πως να διαχειριστεί το καθε πρόβλημα που αντιμετωπίζεις</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Κυριακή</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">29 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 10 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2060,16 +2184,40 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Οι συνεδρίες με βοήθησαν να κατανοήσω καλύτερα τον εαυτό μου, να βρω τρόπους να διαχειρίζομαι δύσκολες σκέψεις και συναισθήματα. Είμαι ευγνώμων για τη στήριξή της.</p>
+                    <p class="review-text">Επαγγελματίας με εμπιστοσύνη και γνώση.</p>
+                    <div class="review-author">
+                        <div>
+                            <div class="review-author-name">Marios</div>
+                            <div class="review-author-meta">1 αξιολόγηση</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 11 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-score">
+                            <span class="review-score-badge">10.0</span>
+                            <div class="review-stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                        </div>
+                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                    </div>
+                    <p class="review-text">Με την Αγγελικη έχουμε ξεκινήσει θεραπεία εδώ και ένα μισή μήνα περίπου Οι συνεδρίες με βοήθησαν να κατανοήσω καλύτερα τον εαυτό μου, να βρω τρόπους να διαχειρίζομαι δύσκολες σκέψεις και συναισθήματα. Είμαι ευγνώμων για τη στήριξη της</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Ολγα</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">18 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 12 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2084,16 +2232,16 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η θεραπεία μαζί της ήταν ένα από τα πιο σημαντικά δώρα που έκανα στον εαυτό μου. Ένιωσα αποδοχή, στήριξη και έναν ασφαλή χώρο. Τη συστήνω ανεπιφύλακτα.</p>
+                    <p class="review-text">Η θεραπεία μαζί της ήταν ένα από τα πιο σημαντικά δώρα που έκανα στον εαυτό μου. Ένιωσα αποδοχή, στήριξη και έναν ασφαλή χώρο για να κατανοήσω καλύτερα τον εαυτό μου και να αλλάξω ό,τι με δυσκόλευε. Τη συστήνω ανεπιφύλακτα.❤️</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Maria</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">17 Οκτωβρίου 2025</div>
                     </div>
                 </div>
 
+                <!-- Review 13 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2108,37 +2256,36 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η Αγγελική με βοήθησε σε πολύ δύσκολες στιγμές. Ήταν πάντα εκεί, με στήριξε με υπομονή και πραγματικό ενδιαφέρον. Με έμαθε να αγαπάω τον εαυτό μου. Είναι άψογη επαγγελματίας με ψυχή και ενσυναίσθηση.</p>
+                    <p class="review-text">Καταρτισμένη πολύ, φιλική και απόλυτα κατανοητή!!</p>
+                    <div class="review-author">
+                        <div>
+                            <div class="review-author-name">Giannis</div>
+                            <div class="review-author-meta">1 αξιολόγηση</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 14 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="review-score">
+                            <span class="review-score-badge">10.0</span>
+                            <div class="review-stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                        </div>
+                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                    </div>
+                    <p class="review-text">Η Αγγελική με βοήθησε σε πολύ δύσκολες στιγμές, όταν ένιωθα χαμένη και χωρίς κατεύθυνση. Ήταν πάντα εκεί για μένα, ακόμα και σε ώρες που δεν το περίμενα, με στήριξε με απέραντη υπομονή και πραγματικό ενδιαφέρον. Μέσα από τις συνεδρίες μας, με έμαθε να αγαπάω τον εαυτό μου και να βλέπω τη ζωή με άλλη δύναμη και καθαρότητα. Συνεχίζω μαζί της γιατί κάθε φορά νιώθω πως με βοηθά να γίνομαι καλύτερη εκδοχή του εαυτού μου. Είναι άψογη επαγγελματίας, με ψυχή, ενσυναίσθηση και πραγματική αγάπη για αυτό που κάνει. Τη συστήνω ανεπιφύλακτα σε όποιον αναζητά στήριξη, καθοδήγηση και ειλικρίνεια μέσα από τη θεραπεία.</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Domna</div>
                             <div class="review-author-meta">1 αξιολόγηση</div>
                         </div>
-                        <div class="review-date">17 Οκτωβρίου 2025</div>
-                    </div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-top">
-                        <div class="review-score">
-                            <span class="review-score-badge">10.0</span>
-                            <div class="review-stars">
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            </div>
-                        </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
-                    </div>
-                    <p class="review-text">Επαγγελματίας με εμπιστοσύνη και γνώση. Καταρτισμένη πολύ, φιλική και απόλυτα κατανοητή.</p>
-                    <div class="review-author">
-                        <div>
-                            <div class="review-author-name">Marios & Giannis</div>
-                            <div class="review-author-meta">αξιολογήσεις</div>
-                        </div>
-                        <div class="review-date">Οκτώβριος 2025</div>
                     </div>
                 </div>
 
@@ -2153,54 +2300,35 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         BLOG / ARTICLES (CONTENTFUL)
+    ═══════════════════════════════════════════ -->
     <section class="blog" id="blog">
         <div class="container">
-            <div class="blog-header">
+            <div class="blog-header" id="blog-header">
                 <div class="section-label reveal">Κατηγορίες Θεματολογίας</div>
                 <h2 class="section-title reveal reveal-delay-1">Άρθρα</h2>
             </div>
             
-            <div class="blog-grid">
-                <div class="blog-card reveal">
-                    <h3>Άγχος και κρίσεις πανικού</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-1">
-                    <h3>Αυτοεκτίμηση και εσωτερικός διάλογος</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-2">
-                    <h3>Σχέσεις και όρια</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal">
-                    <h3>Συναισθηματική ρύθμιση και Third-Wave CBT</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-1">
-                    <h3>Κλινική υπνοθεραπεία</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-2">
-                    <h3>Παιδιά και έφηβοι</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal">
-                    <h3>Γονείς και οικογένεια</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-1">
-                    <h3>Επαγγελματικός προσανατολισμός</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="blog-card reveal reveal-delay-2">
-                    <h3>Ψυχοθεραπεία και θεραπευτική διαδικασία</h3>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
+            <div id="list-view" class="reveal reveal-delay-2">
+                <div id="articles-container"><p style="text-align:center; color: var(--taupe);">Φόρτωση άρθρων...</p></div>
+            </div>
+
+            <div id="article-view">
+                <button class="back-btn" onclick="showList()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Επιστροφή στα άρθρα
+                </button>
+                <span class="date" id="single-date" style="font-size: 0.8rem; color: var(--warm-gold); letter-spacing: 0.05em; text-transform: uppercase;"></span>
+                <h1 id="single-title"></h1>
+                <div id="single-content" class="article-content"></div>
             </div>
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         CTA / CONTACT
+    ═══════════════════════════════════════════ -->
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-grid">
@@ -2249,6 +2377,9 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
@@ -2258,6 +2389,9 @@
         </div>
     </footer>
 
+    <!-- ═══════════════════════════════════════════
+         JAVASCRIPT
+    ═══════════════════════════════════════════ -->
     <script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
@@ -2337,6 +2471,121 @@
                 }
             });
         });
+
+        // ═══════════════════════════════════════════
+        // CONTENTFUL BLOG INTEGRATION
+        // ═══════════════════════════════════════════
+        const client = contentful.createClient({
+            space: '24i9x7ezw4i3', 
+            accessToken: 'Fyt2E3U-x4Q0DAiXN0chZ1EpF6BSsnFg5ko1W38NpO8',
+            environment: 'master'
+        });
+
+        let allArticles = []; 
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('el-GR', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function renderNode(node) {
+            if (!node) return '';
+
+            if (node.nodeType === 'text') {
+                let html = node.value;
+                if (node.marks) {
+                    node.marks.forEach(mark => {
+                        if (mark.type === 'bold') html = `<strong>${html}</strong>`;
+                        if (mark.type === 'italic') html = `<em>${html}</em>`;
+                        if (mark.type === 'underline') html = `<u>${html}</u>`;
+                    });
+                }
+                return html;
+            }
+
+            const contentHtml = node.content ? node.content.map(renderNode).join('') : '';
+
+            switch (node.nodeType) {
+                case 'paragraph': return `<p>${contentHtml}</p>`;
+                case 'heading-1': return `<h1>${contentHtml}</h1>`;
+                case 'heading-2': return `<h2>${contentHtml}</h2>`;
+                case 'heading-3': return `<h3>${contentHtml}</h3>`;
+                case 'hyperlink': return `<a href="${node.data.uri}" target="_blank">${contentHtml}</a>`;
+                
+                case 'embedded-asset-block':
+                    const target = node.data.target;
+                    if (target && target.fields && target.fields.file) {
+                        const url = target.fields.file.url;
+                        const title = target.fields.title || 'Εικόνα άρθρου';
+                        const finalUrl = url.startsWith('//') ? 'https:' + url : url;
+                        return `<img src="${finalUrl}" alt="${title}" loading="lazy">`;
+                    }
+                    return '';
+                
+                case 'document': return contentHtml;
+                default: return contentHtml;
+            }
+        }
+
+        client.getEntries({ order: '-sys.createdAt' })
+            .then((response) => {
+                allArticles = response.items;
+                const container = document.getElementById('articles-container');
+                
+                if (allArticles.length === 0) {
+                    container.innerHTML = "<p style='text-align:center; color: var(--taupe);'>Δεν βρέθηκαν άρθρα αυτή τη στιγμή.</p>";
+                    return;
+                }
+
+                container.innerHTML = ""; 
+
+                allArticles.forEach((entry, index) => {
+                    const title = entry.fields.title || "Χωρίς Τίτλο";
+                    const date = formatDate(entry.sys.createdAt);
+
+                    container.innerHTML += `
+                        <div class="dynamic-article-card" onclick="openArticle(${index})">
+                            <div>
+                                <span class="date">${date}</span>
+                                <h3>${title}</h3>
+                                <button class="read-more-btn">Διαβάστε περισσότερα</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                document.getElementById('articles-container').innerHTML = `
+                    <p style="color:var(--warm-gold); text-align:center;">
+                        Σφάλμα σύνδεσης με τα άρθρα.
+                    </p>`;
+            });
+
+        function openArticle(index) {
+            const article = allArticles[index];
+            
+            document.getElementById('single-title').innerText = article.fields.title || "Χωρίς Τίτλο";
+            document.getElementById('single-date').innerText = formatDate(article.sys.createdAt);
+            
+            let bodyHtml = "";
+            if (article.fields.body && article.fields.body.nodeType === 'document') {
+                bodyHtml = renderNode(article.fields.body);
+            } else {
+                bodyHtml = `<p>${article.fields.body || ""}</p>`;
+            }
+            document.getElementById('single-content').innerHTML = bodyHtml;
+
+            document.getElementById('list-view').style.display = 'none';
+            document.getElementById('article-view').style.display = 'block';
+            
+            document.getElementById('blog-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function showList() {
+            document.getElementById('article-view').style.display = 'none';
+            document.getElementById('list-view').style.display = 'block';
+            document.getElementById('blog-header').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     </script>
 
 </body>
