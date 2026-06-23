@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Contentful SDK -->
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
 
     <style>
@@ -820,7 +819,7 @@
             font-weight: 300;
         }
 
-        .service-tags {
+        .services-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -1653,9 +1652,6 @@
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════════
-         NAVIGATION
-    ═══════════════════════════════════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Αρχική">
@@ -1680,7 +1676,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#about" onclick="closeMobile()">Σχετικά</a>
         <a href="#services" onclick="closeMobile()">Υπηρεσίες</a>
@@ -1691,9 +1686,6 @@
         <a href="#contact" onclick="closeMobile()">Κλείστε Ραντεβού</a>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         HERO
-    ═══════════════════════════════════════════ -->
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0652%20.JPG?raw=true" alt="Ψυχοθεραπεία - Χώρος" loading="eager">
@@ -1732,9 +1724,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         ABOUT
-    ═══════════════════════════════════════════ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -1759,7 +1748,7 @@
                         Η εκπαίδευση και η συνεχιζόμενη επαγγελματική μου ανάπτυξη περιλαμβάνουν τη Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία, τη Συμβουλευτική Ζεύγους και Οικογένειας και τη Θετική Ψυχολογία. Παράλληλα, εκπαιδεύομαι στη Γνωσιακή Συμπεριφορική Θεραπεία Τρίτου Κύματος, με έμφαση στην ενσυνειδητότητα, την αποδοχή, τη συναισθηματική ρύθμιση και την ενίσχυση της ψυχολογικής ευελιξίας, καθώς και στη Διαλεκτική Συμπεριφορική Θεραπεία για Παιδιά (DBT-C) και στον Επαγγελματικό Προσανατολισμό.
                     </p>
                     <p class="about-text reveal reveal-delay-4">
-                        Μέσα από τη συνεχή επιμόρφωσή μου, εμπλουτίζω τις γνώσεις και τις δεξιότητές μου σε ζητήματα που αφορούν τα παιδιά, τους εφήβους, τις διαπροσωπικές σχέσεις, τη συναισθηματική ρύθμιση, τη λήψη εκπαιδευτικών και επαγγελματικών αποφάσεων και τη σύγχρονη ψυχοθεραπευτική πρακτική.
+                        Μέσα από τη συνεχή επιμόρφωσή μου, εμπλουτίζω τις γνώσεις and τις δεξιότητές μου σε ζητήματα που αφορούν τα παιδιά, τους εφήβους, τις διαπροσωπικές σχέσεις, τη συναισθηματική ρύθμιση, τη λήψη εκπαιδευτικών και επαγγελματικών αποφάσεων και τη σύγχρονη ψυχοθεραπευτική πρακτική.
                     </p>
                     <p class="about-text reveal reveal-delay-5">
                         Στη θεραπευτική διαδικασία, η προσέγγιση προσαρμόζεται στις ανάγκες, στην προσωπικότητα, στις εμπειρίες και στους στόχους κάθε ανθρώπου. Στόχος μου είναι να δημιουργώ έναν χώρο αποδοχής, ασφάλειας και ουσιαστικής συνεργασίας, μέσα στον οποίο το άτομο μπορεί να αναγνωρίσει τα μοτίβα που το δυσκολεύουν, να αποκτήσει μεγαλύτερη επίγνωση και να αναπτύξει νέους, πιο λειτουργικούς τρόπους σκέψης, συναισθηματικής διαχείρισης και δράσης.
@@ -1785,9 +1774,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SERVICES
-    ═══════════════════════════════════════════ -->
     <section class="services" id="services">
         <div class="container">
 
@@ -1799,12 +1785,11 @@
 
             <div class="services-grid">
 
-                <!-- Service 1 -->
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 2.76-2.24 5-5 5s-5-2.24-5-5a5 5 0 015-5z"/><path d="M3.41 22a8.003 8.003 0 0117.18 0"/></svg>
                     </div>
-                    <h3>Ατομική Γνωσιακή Συμπεριφορική Ψυχοθεραπεία</h3>
+                    <h3>Γνωσιακή Συμπεριφορική Ψυχοθεραπεία</h3>
                     <div class="service-includes">Ατομική συνεδρία 50΄</div>
                     <p>Η Γνωσιακή Συμπεριφορική Θεραπεία βοηθά το άτομο να κατανοήσει τη σύνδεση ανάμεσα στις σκέψεις, στα συναισθήματα, στις σωματικές αντιδράσεις και στη συμπεριφορά του. Μαζί αναγνωρίζουμε τα μοτίβα που συντηρούν τη δυσκολία και αναπτύσσουμε πρακτικές δεξιότητες για την αντιμετώπισή της. Η προσέγγιση μπορεί να αξιοποιηθεί για δυσκολίες που σχετίζονται με το άγχος, τον πανικό, τις φοβίες, τη χαμηλή αυτοεκτίμηση, την υπερανάλυση, τη συναισθηματική ένταση και τις διαπροσωπικές σχέσεις.</p>
                     <div class="service-tags">
@@ -1814,14 +1799,13 @@
                     </div>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="service-card reveal reveal-delay-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
                     <h3>Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία</h3>
                     <div class="service-includes">Ατομική συνεδρία 50΄</div>
-                    <p>Η Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία συνδυάζει τις αρχές της CBT με τεχνικές εστιασμένης προσοχής, χαλάρωσης και καθοδηγούμενης φαντασίας. Κατά τη διάρκεια της διαδικασίας το άτομο παραμένει σε επικοινωνία με τον θεραπευτή και διατηρεί τον έλεγχο. Η υπνοθεραπεία είναι μια κατάσταση αυξημένης συγκέντρωσης και εσωτερικής προσοχής. Ανάλογα με το θεραπευτικό αίτημα, μπορεί να χρησιμοποιηθούν διαφραγματική αναπνοή, προοδευτική μυϊκή χαλάρωση, τεχνικές ενδυνάμωσης, γνωσιακής αναδόμησης και συναισθηματικής ρύθμισης.</p>
+                    <p>Η Γνωσιακή Συμπεριφορική Κλινική Υπνοθεραπεία συνδυάζει τις αρχές της Γνωσιακής Συμπεριφορικής Θεραπείας με τεχνικές εστιασμένης προσοχής, χαλάρωσης και καθοδηγούμενης φαντασίας. Η αυξημένη συγκέντρωση και η απομάκρυνση των δευτερογενών περισπασμών μπορούν να διευκολύνουν την επεξεργασία της θεραπευτικής πληροφορίας και την εμπέδωση νέων τρόπων σκέψης, συναισθηματικής ανταπόκρισης και συμπεριφοράς σε βαθύτερο επίπεδο μάθησης.Ανάλογα με το θεραπευτικό αίτημα, μπορεί να αξιοποιηθούν διαφραγματική αναπνοή, προοδευτική μυϊκή χαλάρωση, καθοδηγούμενες νοερές εικόνες, τεχνικές ενδυνάμωσης, γνωσιακής αναδόμησης και συναισθηματικής ρύθμισης. Η προσέγγιση μπορεί να ενταχθεί σε ένα εξατομικευμένο θεραπευτικό πλάνο για δυσκολίες που σχετίζονται με το άγχος, τις κρίσεις πανικού, τις φοβίες, τις διαταραχές ύπνου, τη χαμηλή αυτοπεποίθηση, τη διαχείριση θυμού και στρες, καθώς και την αλλαγή επιβαρυντικών συνηθειών.</p>
                     <div class="service-tags">
                         <span class="service-tag">Εστιασμένη προσοχή</span>
                         <span class="service-tag">Χαλάρωση</span>
@@ -1829,7 +1813,6 @@
                     </div>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="service-card reveal reveal-delay-2">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
@@ -1844,7 +1827,6 @@
                     </div>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="service-card reveal reveal-delay-3">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -1864,9 +1846,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         PILLARS (APPROACH)
-    ═══════════════════════════════════════════ -->
     <section class="pillars" id="pillars">
         <div class="container">
 
@@ -1906,9 +1885,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SPACE / GALLERY
-    ═══════════════════════════════════════════ -->
     <section class="space" id="space">
         <div class="container">
 
@@ -1930,15 +1906,11 @@
         </div>
     </section>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <div class="lightbox-close">&times;</div>
         <img id="lightboxImg" src="" alt="Μεγεθυμένη εικόνα">
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         REVIEWS
-    ═══════════════════════════════════════════ -->
     <section class="reviews" id="reviews">
         <div class="container">
 
@@ -1953,7 +1925,6 @@
         <div class="reviews-track-wrapper reveal">
             <div class="reviews-track" id="reviewsTrack">
 
-                <!-- Review 1 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -1977,7 +1948,6 @@
                     </div>
                 </div>
 
-                <!-- Review 2 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2001,7 +1971,6 @@
                     </div>
                 </div>
 
-                <!-- Review 3 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2016,7 +1985,7 @@
                         </div>
                         <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
                     </div>
-                    <p class="review-text">Η ψυχοθεραπεύτρια μου με βοηθησε ουσιαστικα να ξεπερασω τις κρισεις πανικου και να γινω πιο λειτουργικος στην καθημερινοτητα μου. Απο την αρχη με εκανε να νιωθω ανετα και ασφαλης.Την ευχαριστώ πολύ 🙏🏻</p>
+                    <p class="review-text">Η ψυχοθεραπεύτρια μου με βοηθησε ουσιαστικα να ξεπερασω τις κρισεις πανικου και να γινω πιο λειτουργικος στην καθημερινοτητα μου. Απο την αρχη με εκανε να νιωθω ανετα και ασφαλης.Την ευχαριστώ πολύ 🙏μ</p>
                     <div class="review-author">
                         <div>
                             <div class="review-author-name">Manos</div>
@@ -2025,7 +1994,6 @@
                     </div>
                 </div>
 
-                <!-- Review 4 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2049,7 +2017,6 @@
                     </div>
                 </div>
 
-                <!-- Review 5 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2073,7 +2040,6 @@
                     </div>
                 </div>
 
-                <!-- Review 6 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2097,7 +2063,6 @@
                     </div>
                 </div>
 
-                <!-- Review 7 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2121,7 +2086,6 @@
                     </div>
                 </div>
 
-                <!-- Review 8 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2145,7 +2109,6 @@
                     </div>
                 </div>
 
-                <!-- Review 9 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2169,7 +2132,6 @@
                     </div>
                 </div>
 
-                <!-- Review 10 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2193,7 +2155,6 @@
                     </div>
                 </div>
 
-                <!-- Review 11 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2217,7 +2178,6 @@
                     </div>
                 </div>
 
-                <!-- Review 12 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2241,7 +2201,6 @@
                     </div>
                 </div>
 
-                <!-- Review 13 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2265,7 +2224,6 @@
                     </div>
                 </div>
 
-                <!-- Review 14 -->
                 <div class="review-card">
                     <div class="review-top">
                         <div class="review-score">
@@ -2300,9 +2258,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         BLOG / ARTICLES (CONTENTFUL)
-    ═══════════════════════════════════════════ -->
     <section class="blog" id="blog">
         <div class="container">
             <div class="blog-header" id="blog-header">
@@ -2326,9 +2281,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         CTA / CONTACT
-    ═══════════════════════════════════════════ -->
     <section class="cta-section" id="contact">
         <div class="container">
             <div class="cta-grid">
@@ -2377,9 +2329,6 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         FOOTER
-    ═══════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
@@ -2389,9 +2338,6 @@
         </div>
     </footer>
 
-    <!-- ═══════════════════════════════════════════
-         JAVASCRIPT
-    ═══════════════════════════════════════════ -->
     <script>
         // Navigation scroll effect
         const nav = document.getElementById('nav');
