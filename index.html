@@ -5,12 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Αγγελική Φλεριανού - Γνωσιακή Συμπεριφορική Ψυχοθεραπεύτρια & Κλινική Υπνοθεραπεύτρια.">
     <title>Αγγελική Φλεριανού | Γνωσιακή Συμπεριφορική Ψυχοθεραπεία & Κλινική Υπνοθεραπεία</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/agelmet/FLERIANOU/05f709ba849550ac80569f39450cb5d9d16184f9/Gemini_Generated_Image_pe0nr2pe0nr2pe0n-2.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <link rel="icon" type="image/png" href="Gemini_Generated_Image_pe0nr2pe0nr2pe0n-2.png">
+    <style id="advon-fonts">/* fonts served from this site (was Google Fonts) */
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:200;src:url(assets/fonts/manrope-greek-200-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:200;src:url(assets/fonts/manrope-latin-200-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:200;src:url(assets/fonts/manrope-latin-ext-200-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:300;src:url(assets/fonts/manrope-greek-300-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:300;src:url(assets/fonts/manrope-latin-300-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:300;src:url(assets/fonts/manrope-latin-ext-300-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/manrope-greek-400-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/manrope-latin-400-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/manrope-latin-ext-400-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/manrope-greek-500-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/manrope-latin-500-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/manrope-latin-ext-500-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/manrope-greek-600-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/manrope-latin-600-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/manrope-latin-ext-600-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/manrope-greek-700-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/manrope-latin-700-normal.woff2) format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/manrope-latin-ext-700-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:italic;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-greek-400-italic.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:italic;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-latin-400-italic.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:italic;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-latin-ext-400-italic.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-greek-400-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-latin-400-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:400;src:url(assets/fonts/eb-garamond-latin-ext-400-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/eb-garamond-greek-500-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/eb-garamond-latin-500-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:500;src:url(assets/fonts/eb-garamond-latin-ext-500-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/eb-garamond-greek-600-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/eb-garamond-latin-600-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:600;src:url(assets/fonts/eb-garamond-latin-ext-600-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/eb-garamond-greek-700-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/eb-garamond-latin-700-normal.woff2) format('woff2');}
+@font-face{font-family:'EB Garamond';font-style:normal;font-display:swap;font-weight:700;src:url(assets/fonts/eb-garamond-latin-ext-700-normal.woff2) format('woff2');}
+h1,h2,h3,h4,h5{overflow-wrap:anywhere}
+</style>
+<script src="assets/vendor/contentful@11.12.10/dist/contentful.browser.min.js"></script>
 
     <style>
         /* ═══════════════════════════════════════════
@@ -30,7 +62,7 @@
             --light-charcoal: #4a4a4a;
             --mist: #f0ede7;
 
-            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-display: 'EB Garamond', Georgia, serif;
             --font-body: 'Manrope', sans-serif;
 
             --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
@@ -1649,13 +1681,14 @@
             }
         }
     </style>
+<style id="advon-lang-css">html[lang^="en"] .adv-l-el,html:not([lang^="en"]) .adv-l-en{display:none}</style>
 </head>
 <body>
 
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#hero" class="nav-logo" aria-label="Αρχική">
-                <img src="https://raw.githubusercontent.com/agelmet/FLERIANOU/05f709ba849550ac80569f39450cb5d9d16184f9/Gemini_Generated_Image_pe0nr2pe0nr2pe0n-2.png" alt="Αγγελική Φλεριανού Logo">
+                <img src="Gemini_Generated_Image_pe0nr2pe0nr2pe0n-2.png" alt="Αγγελική Φλεριανού Logo">
             </a>
 
             <div class="nav-links">
@@ -1688,7 +1721,7 @@
 
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0652%20.JPG?raw=true" alt="Ψυχοθεραπεία - Χώρος" loading="eager">
+            <img src="J23A0652%20.JPG" alt="Ψυχοθεραπεία - Χώρος" loading="eager">
         </div>
 
         <div class="hero-container">
@@ -1730,7 +1763,7 @@
 
                 <div class="about-image-wrapper reveal">
                     <div class="about-image-frame">
-                        <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0643%20.JPG?raw=true" alt="Αγγελική Φλεριανού - Ψυχοθεραπεύτρια" loading="lazy">
+                        <img src="J23A0643%20.JPG" alt="Αγγελική Φλεριανού - Ψυχοθεραπεύτρια" loading="lazy">
                     </div>
                     <div class="about-image-accent">
                         <span>Σκέψη, συναίσθημα και σώμα σε μια ενιαία θεραπευτική προσέγγιση.</span>
@@ -1896,10 +1929,10 @@
 
             <div class="space-gallery">
                 <div class="space-image reveal" onclick="openLightbox(this)">
-                    <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0802.JPG?raw=true" alt="Χώρος Ψυχοθεραπείας 1" loading="lazy">
+                    <img src="J23A0802.JPG" alt="Χώρος Ψυχοθεραπείας 1" loading="lazy">
                 </div>
                 <div class="space-image reveal reveal-delay-1" onclick="openLightbox(this)">
-                    <img src="https://github.com/agelmet/FLERIANOU/blob/main/J23A0810.JPG?raw=true" alt="Χώρος Ψυχοθεραπείας 2" loading="lazy">
+                    <img src="J23A0810.JPG" alt="Χώρος Ψυχοθεραπείας 2" loading="lazy">
                 </div>
             </div>
 
@@ -1937,7 +1970,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η Αγγελική είναι κάτι σπάνιο και δυσεύρετο στο νησί μας αλλά και γενικότερα πιστεύω. Οι γνώσεις της είναι εις βάθος και οι τεχνικές της διαφορετικές από όσα είχα δουλέψει μέχρι τωρα. Σε βοηθάει επί της ουσίας και όχι απλά με συμβουλές κ λόγια του αέρα. Την ευχαριστώ βαθιά γιατί η καθοδήγηση της με έχει βοηθήσει πολύ και σε ατομικό επίπεδο αλλά κ σε οικογενειακό πλαίσιο.</p>
                     <div class="review-author">
@@ -1960,7 +1993,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">We appreciate Angel's support, she was very kind and professional. Her consistency and knowledge are remarkable. From the depths of our hearts my wife and I thank you sincerely!</p>
                     <div class="review-author">
@@ -1983,7 +2016,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η ψυχοθεραπεύτρια μου με βοηθησε ουσιαστικα να ξεπερασω τις κρισεις πανικου και να γινω πιο λειτουργικος στην καθημερινοτητα μου. Απο την αρχη με εκανε να νιωθω ανετα και ασφαλης.Την ευχαριστώ πολύ 🙏μ</p>
                     <div class="review-author">
@@ -2006,7 +2039,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η Αγγελική καταφέρνει να συνδυάζει την ζεστασιά και την ενσυναισθηση, με την επιστημονικοτητα. Έχω μεγάλη δυσκολία να μιλήσω για τα συναισθήματα μου και τις σκέψεις μου, αλλά σου δημιουργεί μια απίστευτη αίσθηση εμπιστοσύνης και οικειότητα, και το να της ανοιχτώ το ένιωσα απόλυτα φυσικό και εύκολο. Η ανακούφιση που μου δημιούργησε από την πρώτη συνεδρία, ηταν σαν ένα τεράστιο βάρος να έφυγε από πάνω μου. Είμαι πολύ ευγνώμων που την βρήκα και που έκανα το βήμα να ξεκινήσω μαζί της θεραπεία.</p>
                     <div class="review-author">
@@ -2029,7 +2062,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η ψυχοθεραπεύτριά μου με βοήθησε να σταθώ ξανά στα πόδια μου μετά από έναν δύσκολο χωρισμό και να ανακαλύψω ποια είμαι πραγματικά. Μέσα από τις συνεδρίες μας ένιωσα στήριξη κατανόηση και δύναμη να προχωρήσω.</p>
                     <div class="review-author">
@@ -2052,7 +2085,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η συνεργασία μας ήταν καθοριστική για μένα. Με τη βοήθειά της ξεπέρασα τις κρίσεις πανικού, ξαναβρήκα τον εαυτό μου και ένιωσα πραγματικά πιο δυνατή και σίγουρη. Μια ψυχολόγος με βαθιά κατανόηση και ανθρώπινη παρουσία</p>
                     <div class="review-author">
@@ -2075,7 +2108,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η ψυχολόγος μου με έχει βοηθήσει πολύ να πω δυνατά τις σκέψεις μου. Ο σεβασμός και η αντιμετώπιση της με μαθαίνουν να αντιμετωπίζω καλύτερα τη ζωή μου . Είναι πολύ θετικό ότι η συνεδρία γίνεται με μορφή συζητήσεις και όχι με υποδείξεις, Νιώθω ότι πραγματικά ακούγομαι και παίρνω πάρα πολύ χρήσιμες πληροφορίες. Ήταν η πρώτη φορά δεν έχω ξανά κάνει θεραπεία Και με έκανε να γίνει μέρος της ζωής μου.</p>
                     <div class="review-author">
@@ -2098,7 +2131,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η συνεδρία μου ήταν μια εξαιρετικη εμπειρία. Η κυρία Φλεριανου ήταν άμεση δημιουργοντας μου ένα κλίμα εμπιστοσύνης από την πρώτη στιγμή. Ένιωσα πολύ άνετα χωρίς καμία πίεση ψυχολογική ή αμηχανία. Ένιωσα αμέσως σαν να βρίσκομαι σε ένα περιβάλλον υποστηρικτικό και ασφαλές. Η βοήθεια της μου προσφέρει ηρεμία στην σκέψεις μου!</p>
                     <div class="review-author">
@@ -2121,7 +2154,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η καλύτερη με διαφορά. Με βοήθησε πολύ είναι πάνω από όλα άνθρωπος και ξερει πως να διαχειριστεί το καθε πρόβλημα που αντιμετωπίζεις</p>
                     <div class="review-author">
@@ -2144,7 +2177,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Επαγγελματίας με εμπιστοσύνη και γνώση.</p>
                     <div class="review-author">
@@ -2167,7 +2200,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Με την Αγγελικη έχουμε ξεκινήσει θεραπεία εδώ και ένα μισή μήνα περίπου Οι συνεδρίες με βοήθησαν να κατανοήσω καλύτερα τον εαυτό μου, να βρω τρόπους να διαχειρίζομαι δύσκολες σκέψεις και συναισθήματα. Είμαι ευγνώμων για τη στήριξη της</p>
                     <div class="review-author">
@@ -2190,7 +2223,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η θεραπεία μαζί της ήταν ένα από τα πιο σημαντικά δώρα που έκανα στον εαυτό μου. Ένιωσα αποδοχή, στήριξη και έναν ασφαλή χώρο για να κατανοήσω καλύτερα τον εαυτό μου και να αλλάξω ό,τι με δυσκόλευε. Τη συστήνω ανεπιφύλακτα.❤️</p>
                     <div class="review-author">
@@ -2213,7 +2246,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Καταρτισμένη πολύ, φιλική και απόλυτα κατανοητή!!</p>
                     <div class="review-author">
@@ -2236,7 +2269,7 @@
                                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             </div>
                         </div>
-                        <img class="review-doctoranytime-icon" src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                        <img class="review-doctoranytime-icon" src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
                     </div>
                     <p class="review-text">Η Αγγελική με βοήθησε σε πολύ δύσκολες στιγμές, όταν ένιωθα χαμένη και χωρίς κατεύθυνση. Ήταν πάντα εκεί για μένα, ακόμα και σε ώρες που δεν το περίμενα, με στήριξε με απέραντη υπομονή και πραγματικό ενδιαφέρον. Μέσα από τις συνεδρίες μας, με έμαθε να αγαπάω τον εαυτό μου και να βλέπω τη ζωή με άλλη δύναμη και καθαρότητα. Συνεχίζω μαζί της γιατί κάθε φορά νιώθω πως με βοηθά να γίνομαι καλύτερη εκδοχή του εαυτού μου. Είναι άψογη επαγγελματίας, με ψυχή, ενσυναίσθηση και πραγματική αγάπη για αυτό που κάνει. Τη συστήνω ανεπιφύλακτα σε όποιον αναζητά στήριξη, καθοδήγηση και ειλικρίνεια μέσα από τη θεραπεία.</p>
                     <div class="review-author">
@@ -2253,7 +2286,7 @@
         <div class="reviews-cta reveal">
             <a href="https://www.doctoranytime.gr/d/psychotherapeutis/flerianou-aggeliki" target="_blank" rel="noopener">
                 Περισσότερες αξιολογήσεις στο
-                <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime">
+                <img src="assets/ext/logo-rebranding-2711baee.png" alt="Doctoranytime">
             </a>
         </div>
     </section>
@@ -2333,7 +2366,7 @@
         <div class="container">
             <div class="footer-inner">
                 <span class="footer-copy">&copy; 2026 Αγγελική Φλεριανού. Όλα τα δικαιώματα διατηρούνται.</span>
-                <span class="footer-credit">Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+                <span class="footer-credit">Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a> <span aria-hidden="true">·</span> <a href="privacy.html"><span class="adv-l-el">Πολιτική απορρήτου</span><span class="adv-l-en" lang="en">Privacy policy</span></a></span>
             </div>
         </div>
     </footer>
